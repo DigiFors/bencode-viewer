@@ -131,7 +131,7 @@ class BencodeViewer:
       except IOError:
         tkMessageBox.showerror("Error", "Could not open file (input/output error)")
         return
-      except TypeError, ValueError:
+      except (better_bencode.BencodeValueError, better_bencode.BencodeTypeError):
         tkMessageBox.showerror("Error", "Could not open file (is the file really a bencoded file?)")
         return
       self.sdata = {}
